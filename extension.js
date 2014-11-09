@@ -164,7 +164,11 @@
         intervalMessages: [],
         messageInterval: 5,
         songstats: false,
-        commandLiteral: "!"
+        commandLiteral: "!",
+        blacklists: {
+            NSFW: "https://rawgit.com/SirLydian/basicBot-customization/master/blacklists/ExampleNSFWlist.json",
+            OP: "https://rawgit.com/SirLydian/basicBot-customization/master/blacklists/ExampleOPlist.json"
+        }
     }));
 
     //Start the bot and extend it when it has loaded.
