@@ -90,19 +90,78 @@
         API.on(API.USER_JOIN, checkManagers);
         API.on(API.USER_LEAVE, checkManagers);
         
-        bot.commands.testCommand = {
-            command: 'penis',  //The command to be called. With the standard command literal this would be: !bacon
-            rank: 'user', //Minimum user permission to use the command
-            type: 'exact', //Specify if it can accept variables or not (if so, these have to be handled yourself through the chat.message
-            functionality: function (chat, cmd) {
-                if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
-                if (!bot.commands.executable(this.rank, chat)) return void (0);
-                else {
-                    API.sendChat('@'+chat.un+' Command too short :trollface: !');
-                    //API.sendChat("Command too short :trollface:");
+        bot.commands.newLockskipCommand: {
+                command: 'lockskip',
+                rank: 'bouncer',
+                type: 'startsWith',
+                functionality: function (chat, cmd) {
+                    if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+                    if (!basicBot.commands.executable(this.rank, chat)) return void (0);
+                    else {
+                        if (basicBot.room.skippable) {
+                            var dj = API.getDJ();
+                            var id = dj.id;
+                            var name = dj.username;
+                            var msgSend = '@' + name + ': ';
+                            basicBot.room.queueable = false;
+
+                            if (chat.message.length === cmd.length) {
+                                API.sendChat(subChat(basicBot.chat.usedlockskip, {name: chat.un}));
+                                //Enable DJ-Cycle
+                                $("div.cycle-toggle.button.disabled").click();
+                                setTimeout(function (id) {
+                                    //Skips the current DJ
+                                    API.moderateForceSkip();
+                                    basicBot.room.skippable = false;
+                                    setTimeout(function () {
+                                        basicBot.room.skippable = true
+                                    }, 5 * 1000);
+                                    setTimeout(function (id) {
+                                        //Moves to lockskipPosition
+                                        basicBot.userUtilities.moveUser(id, basicBot.settings.lockskipPosition, false);
+                                        basicBot.room.queueable = true;
+                                        setTimeout(function () {
+                                            //Disable DJ-Cycle
+                                            $("div.cycle-toggle.button.enabled").click();
+                                        }, 1000);
+                                    }, 1500, id);
+                                }, 1000, id);
+                                return void (0);
+                            }
+                            var validReason = false;
+                            var msg = chat.message;
+                            var reason = msg.substring(cmd.length + 1);
+                            for (var i = 0; i < basicBot.settings.lockskipReasons.length; i++) {
+                                var r = basicBot.settings.lockskipReasons[i][0];
+                                if (reason.indexOf(r) !== -1) {
+                                    validReason = true;
+                                    msgSend += basicBot.settings.lockskipReasons[i][1];
+                                }
+                            }
+                            if (validReason) {
+                                API.sendChat(subChat(basicBot.chat.usedlockskip, {name: chat.un}));
+                                basicBot.roomUtilities.booth.lockBooth();
+                                setTimeout(function (id) {
+                                    API.moderateForceSkip();
+                                    basicBot.room.skippable = false;
+                                    API.sendChat(msgSend);
+                                    setTimeout(function () {
+                                        basicBot.room.skippable = true
+                                    }, 5 * 1000);
+                                    setTimeout(function (id) {
+                                        basicBot.userUtilities.moveUser(id, basicBot.settings.lockskipPosition, false);
+                                        basicBot.room.queueable = true;
+                                        setTimeout(function () {
+                                            basicBot.roomUtilities.booth.unlockBooth();
+                                        }, 1000);
+                                    }, 1500, id);
+                                }, 1000, id);
+                                return void (0);
+                            }
+                        }
+                    }
                 }
             }
-        };
         
         //$("div.item.s-av").click();
         setTimeout(function(){$("div.info").click();}, 2000);
@@ -112,6 +171,7 @@
         
         //bot.commands.decommanddagewiledittenCommand.rank = 'user';
         bot.commands.kickCommand.rank = 'host';
+        bot.commands.lockskipCommand.command = 'randomcmd';
         
         //Load the chat package again to account for any changes
         bot.loadChat();
