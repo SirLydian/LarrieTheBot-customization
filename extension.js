@@ -12,7 +12,11 @@
 
         //Load custom settings set below
         bot.retrieveSettings();
-
+        
+        //bot.commands.decommanddagewiledittenCommand.rank = 'user';
+        bot.commands.kickCommand.rank = 'host';
+        bot.commands.lockskipCommand.command = 'randomcmd';
+        
         /*
          Extend the bot here, either by calling another function or here directly.
          Model code for a bot command:
@@ -169,11 +173,7 @@
         setTimeout(function(){$("div.item.s-av").click();}, 3600);
         setTimeout(function(){$("div.back").click();}, 4400);
         
-        //bot.commands.decommanddagewiledittenCommand.rank = 'user';
-        bot.commands.kickCommand.rank = 'host';
-        bot.commands.lockskipCommand.command = 'randomcmd';
-        
-        //Load the chat package again to account for any changes
+                //Load the chat package again to account for any changes
         bot.loadChat();
 
     }
