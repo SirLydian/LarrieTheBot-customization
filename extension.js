@@ -16,7 +16,7 @@
         //bot.commands.decommanddagewiledittenCommand.rank = 'user';
         bot.commands.kickCommand.rank = 'host';
         bot.commands.rouletteCommand.rank = 'host';
-        bot.commands.lockskipCommand.command = 'randomcmd';
+        //bot.commands.lockskipCommand.command = 'randomcmd';
         
         //roulette every 2 hours
         setInterval(function(){
@@ -101,85 +101,6 @@
         //check manager for bouncer+
         API.on(API.USER_JOIN, checkManagers);
         API.on(API.USER_LEAVE, checkManagers);
-        
-        bot.commands.newLockskipCommand = {
-                command: 'lockskip',
-                rank: 'bouncer',
-                type: 'startsWith',
-                functionality: function (chat, cmd) {
-                    if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
-                    if (!bot.commands.executable(this.rank, chat)) return void (0);
-                    else {
-                        if (bot.room.skippable) {
-                            var dj = API.getDJ();
-                            var id = dj.id;
-                            var name = dj.username;
-                            var msgSend = '@' + name + ': ';
-                            bot.room.queueable = false;
-
-                            if (chat.message.length === cmd.length) {
-                                API.sendChat(subChat(bot.chat.usedlockskip, {name: chat.un}));
-                                //Enable DJ-Cycle
-                                $("div.cycle-toggle.button.disabled").click();
-                                setTimeout(function (id) {
-                                    //Skips the current DJ
-                                    API.moderateForceSkip();
-                                    bot.room.skippable = false;
-                                    setTimeout(function () {
-                                        bot.room.skippable = true
-                                    }, 5 * 1000);
-                                    setTimeout(function (id) {
-                                        //Moves to lockskipPosition
-                                        bot.userUtilities.moveUser(id, bot.settings.lockskipPosition, false);
-                                        bot.room.queueable = true;
-                                        setTimeout(function () {
-                                            //Disable DJ-Cycle
-                                            $("div.cycle-toggle.button.enabled").click();
-                                        }, 1000);
-                                    }, 1500, id);
-                                }, 1000, id);
-                                return void (0);
-                            }
-                            var validReason = false;
-                            var msg = chat.message;
-                            var reason = msg.substring(cmd.length + 1);
-                            for (var i = 0; i < bot.settings.lockskipReasons.length; i++) {
-                                var r = bot.settings.lockskipReasons[i][0];
-                                if (reason.indexOf(r) !== -1) {
-                                    validReason = true;
-                                    msgSend += bot.settings.lockskipReasons[i][1];
-                                }
-                            }
-                            if (validReason) {
-                                API.sendChat(subChat(bot.chat.usedlockskip, {name: chat.un}));
-                                //Enable DJ-Cycle
-                                $("div.cycle-toggle.button.disabled").click();
-                                setTimeout(function (id) {
-                                    //Skips current DJ
-                                    API.moderateForceSkip();
-                                    bot.room.skippable = false;
-                                    setTimeout(function(){
-                                        API.sendChat(msgSend);
-                                    }, 2000);
-                                    setTimeout(function () {
-                                        bot.room.skippable = true
-                                    }, 5 * 1000);
-                                    setTimeout(function (id) {
-                                        //Moves to lockskipPosition
-                                        bot.userUtilities.moveUser(id, bot.settings.lockskipPosition, false);
-                                        bot.room.queueable = true;
-                                        setTimeout(function () {
-                                            //disable DJ-Cycle
-                                            $("div.cycle-toggle.button.disabled").click();
-                                        }, 1000);
-                                    }, 1500, id);
-                                }, 1000, id);
-                                return void (0);
-                            }
-                        }
-                    }
-                }
-            }
         
         //$("div.item.s-av").click();
         setTimeout(function(){$("div.info").click();}, 2000);
