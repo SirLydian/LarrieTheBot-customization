@@ -17,6 +17,12 @@
         bot.commands.kickCommand.rank = 'host';
         bot.commands.lockskipCommand.command = 'randomcmd';
         
+        setInterval(function(){
+    	    if (!bot.room.roulette.rouletteStatus) {
+    		    bot.room.roulette.startRoulette();
+    	    }
+        }, 120000);
+        
         /*
          Extend the bot here, either by calling another function or here directly.
          Model code for a bot command:
