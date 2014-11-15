@@ -94,7 +94,7 @@
         API.on(API.USER_JOIN, checkManagers);
         API.on(API.USER_LEAVE, checkManagers);
         
-        bot.commands.newLockskipCommand: {
+        bot.commands.newLockskipCommand = {
                 command: 'lockskip',
                 rank: 'bouncer',
                 type: 'startsWith',
