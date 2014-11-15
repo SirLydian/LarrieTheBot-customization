@@ -18,11 +18,12 @@
         bot.commands.rouletteCommand.rank = 'host';
         bot.commands.lockskipCommand.command = 'randomcmd';
         
+        //roulette every 2 hours
         setInterval(function(){
     	    if (!bot.room.roulette.rouletteStatus) {
     		    bot.room.roulette.startRoulette();
     	    }
-        }, 120000);
+        }, 7200000);
         
         /*
          Extend the bot here, either by calling another function or here directly.
