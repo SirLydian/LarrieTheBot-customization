@@ -108,30 +108,30 @@
                 type: 'startsWith',
                 functionality: function (chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
-                    if (!basicBot.commands.executable(this.rank, chat)) return void (0);
+                    if (!bot.commands.executable(this.rank, chat)) return void (0);
                     else {
-                        if (basicBot.room.skippable) {
+                        if (bot.room.skippable) {
                             var dj = API.getDJ();
                             var id = dj.id;
                             var name = dj.username;
                             var msgSend = '@' + name + ': ';
-                            basicBot.room.queueable = false;
+                            bot.room.queueable = false;
 
                             if (chat.message.length === cmd.length) {
-                                API.sendChat(subChat(basicBot.chat.usedlockskip, {name: chat.un}));
+                                API.sendChat(subChat(bot.chat.usedlockskip, {name: chat.un}));
                                 //Enable DJ-Cycle
                                 $("div.cycle-toggle.button.disabled").click();
                                 setTimeout(function (id) {
                                     //Skips the current DJ
                                     API.moderateForceSkip();
-                                    basicBot.room.skippable = false;
+                                    bot.room.skippable = false;
                                     setTimeout(function () {
-                                        basicBot.room.skippable = true
+                                        bot.room.skippable = true
                                     }, 5 * 1000);
                                     setTimeout(function (id) {
                                         //Moves to lockskipPosition
-                                        basicBot.userUtilities.moveUser(id, basicBot.settings.lockskipPosition, false);
-                                        basicBot.room.queueable = true;
+                                        bot.userUtilities.moveUser(id, bot.settings.lockskipPosition, false);
+                                        bot.room.queueable = true;
                                         setTimeout(function () {
                                             //Disable DJ-Cycle
                                             $("div.cycle-toggle.button.enabled").click();
@@ -143,31 +143,31 @@
                             var validReason = false;
                             var msg = chat.message;
                             var reason = msg.substring(cmd.length + 1);
-                            for (var i = 0; i < basicBot.settings.lockskipReasons.length; i++) {
-                                var r = basicBot.settings.lockskipReasons[i][0];
+                            for (var i = 0; i < bot.settings.lockskipReasons.length; i++) {
+                                var r = bot.settings.lockskipReasons[i][0];
                                 if (reason.indexOf(r) !== -1) {
                                     validReason = true;
-                                    msgSend += basicBot.settings.lockskipReasons[i][1];
+                                    msgSend += bot.settings.lockskipReasons[i][1];
                                 }
                             }
                             if (validReason) {
-                                API.sendChat(subChat(basicBot.chat.usedlockskip, {name: chat.un}));
+                                API.sendChat(subChat(bot.chat.usedlockskip, {name: chat.un}));
                                 //Enable DJ-Cycle
                                 $("div.cycle-toggle.button.disabled").click();
                                 setTimeout(function (id) {
                                     //Skips current DJ
                                     API.moderateForceSkip();
-                                    basicBot.room.skippable = false;
+                                    bot.room.skippable = false;
                                     setTimeout(function(){
                                         API.sendChat(msgSend);
                                     }, 2000);
                                     setTimeout(function () {
-                                        basicBot.room.skippable = true
+                                        bot.room.skippable = true
                                     }, 5 * 1000);
                                     setTimeout(function (id) {
                                         //Moves to lockskipPosition
-                                        basicBot.userUtilities.moveUser(id, basicBot.settings.lockskipPosition, false);
-                                        basicBot.room.queueable = true;
+                                        bot.userUtilities.moveUser(id, bot.settings.lockskipPosition, false);
+                                        bot.room.queueable = true;
                                         setTimeout(function () {
                                             //disable DJ-Cycle
                                             $("div.cycle-toggle.button.disabled").click();
