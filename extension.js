@@ -38,6 +38,72 @@
         //function DisableAudioVideo() {
           //  $("div.item.s-av").click();
        //}
+       
+       
+       
+       staffremovalCommand = {
+                command: 'staffremoval',
+                rank: 'mod',
+                type: 'exact',
+                functionality: function (chat, cmd) {
+                    if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+                    if (!basicBot.commands.executable(this.rank, chat)) return void (0);
+                    else {
+                        if (basicBot.settings.staffremoval) {
+                            basicBot.settings.staffremoval = !basicBot.settings.staffremoval;
+                            clearInterval(basicBot.room.afkInterval);
+                            API.sendChat(subChat(basicBot.chat.toggleoff, {name: chat.un, 'function': basicBot.chat.staffremoval}));
+                        }
+                        else {
+                            basicBot.settings.staffremoval = !basicBot.settings.staffremoval;
+                            basicBot.room.afkInterval = setInterval(function () {
+                                basicBot.roomUtilities.staffCheck()
+                            }, 2 * 1000);
+                            API.sendChat(subChat(basicBot.chat.toggleon, {name: chat.un, 'function': basicBot.chat.staffremoval}));
+                        }
+                    }
+                }
+            }			
+			
+			staffCheck: function () {
+                if (!basicBot.status || !basicBot.settings.staffremoval) return void (0);
+                var rank = basicBot.roomUtilities.rankToNumber(basicBot.settings.afkRankCheck);
+				var waitlistPos = API.getWaitListPosition()+1;
+                var djlist = API.getWaitList();
+                var lastPos = Math.min(djlist.length, basicBot.settings.afkpositionCheck);
+                
+                
+                    
+                        var id = djlist[i].id;
+                        var user = basicBot.userUtilities.lookupUser(id);
+                        if (typeof user !== 'boolean') {
+                            var plugUser = basicBot.userUtilities.getUser(user);
+                            var staff = API.getStaff();
+							for(var i = 0; i < staff.length; i++){
+								if(staff[i].role === 3 && staff[i].id !== 5152412 && waitlistPos === 0){
+									var name = plugUser.username;
+									var lastActive = basicBot.userUtilities.getLastActivity(user);
+									var inactivity = Date.now() - lastActive;
+									var time = basicBot.roomUtilities.msToStr(inactivity);
+									var warncount = user.afkWarningCount;
+									if (inactivity > basicBot.settings.maximumAfk * 0.2 * 1000) {
+										if (warncount === 0) {
+											API.sendChat("Staff is afk!");
+										}
+									}
+								}
+                            }
+                        }
+            }
+       
+       
+       
+       
+       
+       
+       
+       
+       
         
         //Mehs to skip function
         var isRecent = false;
