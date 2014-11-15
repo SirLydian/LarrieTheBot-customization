@@ -57,7 +57,7 @@
                         else {
                             basicBot.settings.staffremoval = !basicBot.settings.staffremoval;
                             basicBot.room.afkInterval = setInterval(function () {
-                                basicBot.roomUtilities.staffCheck()
+                                staffCheck()
                             }, 2 * 1000);
                             API.sendChat(subChat(basicBot.chat.toggleon, {name: chat.un, 'function': basicBot.chat.staffremoval}));
                         }
@@ -65,7 +65,7 @@
                 }
             }			
 			
-			staffCheck: function () {
+			function staffCheck() {
                 if (!basicBot.status || !basicBot.settings.staffremoval) return void (0);
                 var rank = basicBot.roomUtilities.rankToNumber(basicBot.settings.afkRankCheck);
 				var waitlistPos = API.getWaitListPosition()+1;
