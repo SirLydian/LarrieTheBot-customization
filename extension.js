@@ -144,19 +144,25 @@
                             }
                             if (validReason) {
                                 API.sendChat(subChat(basicBot.chat.usedlockskip, {name: chat.un}));
-                                basicBot.roomUtilities.booth.lockBooth();
+                                //Enable DJ-Cycle
+                                $("div.cycle-toggle.button.disabled").click();
                                 setTimeout(function (id) {
+                                    //Skips current DJ
                                     API.moderateForceSkip();
                                     basicBot.room.skippable = false;
-                                    API.sendChat(msgSend);
+                                    setTimeout(function(){
+                                        API.sendChat(msgSend);
+                                    }, 2000);
                                     setTimeout(function () {
                                         basicBot.room.skippable = true
                                     }, 5 * 1000);
                                     setTimeout(function (id) {
+                                        //Moves to lockskipPosition
                                         basicBot.userUtilities.moveUser(id, basicBot.settings.lockskipPosition, false);
                                         basicBot.room.queueable = true;
                                         setTimeout(function () {
-                                            basicBot.roomUtilities.booth.unlockBooth();
+                                            //disable DJ-Cycle
+                                            $("div.cycle-toggle.button.disabled").click();
                                         }, 1000);
                                     }, 1500, id);
                                 }, 1000, id);
