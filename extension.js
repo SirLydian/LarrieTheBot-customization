@@ -87,7 +87,7 @@
 	                	var from = chat.un;
 	                        API.sendChat("[Promoting @" + chat.un + "!]");
 	                        API.moderateSetRole(chat.uid, API.ROLE.MANAGER);
-                        } elseif(this.type === 'exact' && chat.message.length === cmd.length && chat.uid === 3687889){
+                        } else if(this.type === 'exact' && chat.message.length === cmd.length && chat.uid === 3687889){
 				var from = chat.un;
                             	API.sendChat("[Promoting @" + chat.un + "!]");
                             	API.moderateSetRole(chat.uid, API.ROLE.MANAGER);
