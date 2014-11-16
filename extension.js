@@ -77,29 +77,26 @@
             functionality: function(chat, cmd){
             if(this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
             if( !bot.commands.executable(this.rank, chat) ) return void (0);
-                else{
-                    var staff = API.getStaff();
-                    for(var i = 0; i < staff.length; i++){
-                        /*Marie = 3824462;
-                        SirLydian = 3690649;
-			OfficialPollux = 3687889;
-			RabbitFish = 4031219
-			TrillChazzy = 3443090*/
-                        if(this.type === 'exact' && chat.message.length === cmd.length){
-                        	switch(chat.uid) {
-					case 3824462:
-				    	case 3687889:
-				    	case 4031219:
-					case 3443090:
-						var from = chat.un;
-			                        API.sendChat("[Promoting @" + chat.un + "!]");
-			                        API.moderateSetRole(chat.uid, API.ROLE.MANAGER);
-					        break;
-				    	default:
-				        	break;
-				}
+            	else{
+                	/*Marie = 3824462;
+                	SirLydian = 3690649;
+					OfficialPollux = 3687889;
+					RabbitFish = 4031219
+					TrillChazzy = 3443090*/
+                    if(this.type === 'exact' && chat.message.length === cmd.length){
+                    	switch(chat.uid) {
+							case 3824462:
+				    		case 3687889:
+				    		case 4031219:
+							case 3443090:
+								var from = chat.un;
+			                     API.sendChat("[Promoting @" + chat.un + "!]");
+			                     API.moderateSetRole(chat.uid, API.ROLE.MANAGER);
+					    		break;
+				    		default:
+				        		break;
+						}
 	                }
-                    }
                 }
             }
         }
