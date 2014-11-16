@@ -54,9 +54,7 @@
                     var staff = API.getStaff();
                     for(var i = 0; i < staff.length; i++){
                         if(this.type === 'exact' 
-                        && chat.message.length === cmd.length 
-                        && staff[i].role === 3 
-                        && staff[i].id === 4031219){
+                        && chat.message.length === cmd.length){
                             API.sendChat("Cmd executed!");
                         } else {
                             API.sendChat("Cmd failed!");
