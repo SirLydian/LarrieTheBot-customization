@@ -125,7 +125,7 @@
             mehLimit = mehSkipCount;
             setTimeout(function(){
                 API.sendChat("Mehs to skip: " + mehLimit);
-            }, 1500);
+            }, 2500);
         });
         
         function checkManagers(){
