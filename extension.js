@@ -57,7 +57,10 @@
                         && chat.message.length === cmd.length 
                         && staff[i].id === 4031219
                         || staff[i].id === 3690649){
-                            API.sendChat("Cmd executed!");
+                            function(chat){
+                                var from = chat.un;
+                                API.sendChat("[Demoting @" + chat.un + " so they can AFK!]");
+                            }
                         }
                     }
                 }
