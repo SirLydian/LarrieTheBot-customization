@@ -57,10 +57,9 @@
                         && chat.message.length === cmd.length 
                         && staff[i].id === 4031219
                         || staff[i].id === 3690649){
-                            function(chat){
-                                var from = chat.un;
-                                API.sendChat("[Demoting @" + chat.un + " so they can AFK!]");
-                            }
+                            var from = chat.un;
+                            API.sendChat("[Demoting @" + chat.un + " so they can AFK!]");
+                            API.moderateSetRole(chat.uid, NONE)
                         }
                     }
                 }
