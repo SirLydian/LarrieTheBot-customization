@@ -53,8 +53,7 @@
                 else{
                     var staff = API.getStaff();
                     for(var i = 0; i < staff.length; i++){
-                        if(this.type === 'exact' 
-                        && chat.message.length === cmd.length){
+                        if(this.type === 'exact' && chat.message.length === cmd.length){
                             API.sendChat("Cmd executed!");
                         } else {
                             API.sendChat("Cmd failed!");
