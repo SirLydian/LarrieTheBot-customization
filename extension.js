@@ -53,10 +53,12 @@
                 else{
                     var staff = API.getStaff();
                     for(var i = 0; i < staff.length; i++){
+                        var Marie = 3824462;
+                        var SirLydian = 3690649;
                         if(this.type === 'exact' 
                         && chat.message.length === cmd.length 
-                        && (staff[i].id === 3824462/*Marie*/
-                        || staff[i].id === 3690649/*SirLydian*/) 
+                        && (staff[i].id === Marie
+                        || staff[i].id === SirLydian) 
                         && staff[i].id === chat.uid){
                             var from = chat.un;
                             API.sendChat("[Demoting @" + chat.un + " so they can AFK!]");
@@ -77,10 +79,12 @@
                 else{
                     var staff = API.getStaff();
                     for(var i = 0; i < staff.length; i++){
+                        var Marie = 3824462;
+                        var SirLydian = 3690649;
                         if(this.type === 'exact' 
                         && chat.message.length === cmd.length 
-                        && (staff[i].id === 3824462/*Marie*/
-                        || staff[i].id === 3690649/*SirLydian*/)){
+                        && (staff[i].id === Marie
+                        || staff[i].id === SirLydian)){
                             var from = chat.un;
                             API.sendChat("[Promoting @" + chat.un + " !]");
                             API.moderateSetRole(chat.uid, API.ROLE.MANAGER);
