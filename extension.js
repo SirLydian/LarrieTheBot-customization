@@ -80,22 +80,22 @@
             	else{
                 	/*Marie = 3824462;
                 	SirLydian = 3690649;
-					OfficialPollux = 3687889;
-					RabbitFish = 4031219
-					TrillChazzy = 3443090*/
-                    if(this.type === 'exact' && chat.message.length === cmd.length){
-                    	switch(chat.uid) {
-							case 3824462:
-				    		case 3687889:
-				    		case 4031219:
-							case 3443090:
-								var from = chat.un;
-			                     API.sendChat("[Promoting @" + chat.un + "!]");
-			                     API.moderateSetRole(chat.uid, API.ROLE.MANAGER);
-					    		break;
-				    		default:
-				        		break;
-						}
+			OfficialPollux = 3687889;
+			RabbitFish = 4031219
+			TrillChazzy = 3443090*/
+                    	if(this.type === 'exact' && chat.message.length === cmd.length){
+                    		switch(chat.uid) {
+					case 3824462:
+				    	case 3687889:
+				    	case 4031219:
+					case 3443090:
+						var from = chat.un;
+			                     	API.sendChat("[Promoting @" + chat.un + "!]");
+			                     	API.moderateSetRole(chat.uid, API.ROLE.MANAGER);
+					    	break;
+				    	default:
+				        	break;
+				}
 	                }
                 }
             }
