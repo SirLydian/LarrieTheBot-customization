@@ -43,6 +43,62 @@
          }
 
          */
+         
+         
+        		bot.commands.demoteAfkCommand = {
+        command: 'afk',
+        rank: 'manager',
+        type: 'exact',
+            functionality: function(chat, cmd){
+            if(this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+            if( !bot.commands.executable(this.rank, chat) ) return void (0);
+                else{
+                    var staff = API.getStaff();
+                    for(var i = 0; i < staff.length; i++){
+                        var Marie = 3824462;
+                        var SirLydian = 3690649;
+						var OfficialPollux = 3687889;
+                        if(this.type === 'exact' 
+						&& chat.message.length === cmd.length 
+						&& (staff[i].id === Marie || staff[i].id === OfficialPollux) 
+						&& staff[i].id === chat.uid){
+                            var from = chat.un;
+                            API.sendChat("[Demoting @" + chat.un + " so they can AFK!]");
+                            API.moderateSetRole(chat.uid, API.ROLE.NONE);
+                        }
+                    }
+                }
+            }
+        }
+        
+        bot.commands.promoteAfkCommand = {
+        command: 'active',
+        rank: 'user',
+        type: 'exact',
+            functionality: function(chat, cmd){
+            if(this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+            if( !bot.commands.executable(this.rank, chat) ) return void (0);
+                else{
+                    var staff = API.getStaff();
+                    for(var i = 0; i < staff.length; i++){
+                        var Marie = 3824462;
+                        var SirLydian = 3690649;
+						var OfficialPollux = 3687889;
+                        if(this.type === 'exact' && chat.message.length === cmd.length 
+                        && chat.uid === Marie){
+                            var from = chat.un;
+                            API.sendChat("[Promoting @" + chat.un + "!]");
+                            API.moderateSetRole(chat.uid, API.ROLE.MANAGER);
+                        } elseif(this.type === 'exact' && chat.message.length === cmd.length 
+                        && chat.uid === OfficialPollux){
+							var from = chat.un;
+                            API.sendChat("[Promoting @" + chat.un + "!]");
+                            API.moderateSetRole(chat.uid, API.ROLE.MANAGER);
+                        }
+                    }
+                }
+            }
+        }
         
        
         //Mehs to skip function
