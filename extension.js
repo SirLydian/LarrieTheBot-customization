@@ -57,10 +57,9 @@
                     for(var i = 0; i < staff.length; i++){
                         /*Marie = 3824462;
                         SirLydian = 3690649;
-			OfficialPollux = 3687889;*/
-                        if(this.type === 'exact' && chat.message.length === cmd.length 
-			&& (staff[i].id === 3824462 || staff[i].id === 3687889) 
-			&& staff[i].id === chat.uid){
+			OfficialPollux = 3687889;
+			RabbitFish = 4031219*/
+                        if(this.type === 'exact' && chat.message.length === cmd.length && (staff[i].id === 3824462 || staff[i].id === 3687889 || staff[i].id === 4031219) && staff[i].id === chat.uid){
                             	var from = chat.un;
                             	API.sendChat("[Demoting @" + chat.un + " so they can AFK!]");
                             	API.moderateSetRole(chat.uid, API.ROLE.NONE);
@@ -82,12 +81,17 @@
                     for(var i = 0; i < staff.length; i++){
                         /*Marie = 3824462;
                         SirLydian = 3690649;
-			OfficialPollux = 3687889;*/
+			OfficialPollux = 3687889;
+			RabbitFish = 4031219*/
                         if(this.type === 'exact' && chat.message.length === cmd.length && chat.uid === 3824462){
 	                	var from = chat.un;
 	                        API.sendChat("[Promoting @" + chat.un + "!]");
 	                        API.moderateSetRole(chat.uid, API.ROLE.MANAGER);
                         } else if(this.type === 'exact' && chat.message.length === cmd.length && chat.uid === 3687889){
+				var from = chat.un;
+                            	API.sendChat("[Promoting @" + chat.un + "!]");
+                            	API.moderateSetRole(chat.uid, API.ROLE.MANAGER);
+                        } else if(this.type === 'exact' && chat.message.length === cmd.length && chat.uid === 4031219){
 				var from = chat.un;
                             	API.sendChat("[Promoting @" + chat.un + "!]");
                             	API.moderateSetRole(chat.uid, API.ROLE.MANAGER);
