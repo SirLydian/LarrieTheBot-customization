@@ -83,13 +83,11 @@
                         /*Marie = 3824462;
                         SirLydian = 3690649;
 			OfficialPollux = 3687889;*/
-                        if(this.type === 'exact' && chat.message.length === cmd.length 
-                        && chat.uid === Marie){
+                        if(this.type === 'exact' && chat.message.length === cmd.length && chat.uid === 3824462){
 	                	var from = chat.un;
 	                        API.sendChat("[Promoting @" + chat.un + "!]");
 	                        API.moderateSetRole(chat.uid, API.ROLE.MANAGER);
-                        } elseif(this.type === 'exact' && chat.message.length === cmd.length 
-                        && chat.uid === OfficialPollux){
+                        } elseif(this.type === 'exact' && chat.message.length === cmd.length && chat.uid === 3687889){
 				var from = chat.un;
                             	API.sendChat("[Promoting @" + chat.un + "!]");
                             	API.moderateSetRole(chat.uid, API.ROLE.MANAGER);
