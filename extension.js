@@ -51,10 +51,16 @@
             if(this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
             if( !bot.commands.executable(this.rank, chat) ) return void (0);
                 else{
-                    if(this.type === 'exact' && chat.message.length === cmd.length && chat.uid === 4031219){
-                        API.sendChat("Cmd executed!");
-                    } else {
-                        API.sendChat("Cmd failed!");
+                    var staff = API.getStaff();
+                    for(var i = 0; i < staff.length; i++){
+                        if(this.type === 'exact' 
+                        && chat.message.length === cmd.length 
+                        && staff[i].role === 3 
+                        && staff[i].id === 4031219){
+                            API.sendChat("Cmd executed!");
+                        } else {
+                            API.sendChat("Cmd failed!");
+                        }
                     }
                 }
             }
