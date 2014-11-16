@@ -43,7 +43,7 @@
          }
 
          */
-        bot.commands.afkRankCommand = {
+        bot.commands.demoteAfkCommand = {
         command: 'afk',
         rank: 'manager',
         type: 'exact',
@@ -55,11 +55,35 @@
                     for(var i = 0; i < staff.length; i++){
                         if(this.type === 'exact' 
                         && chat.message.length === cmd.length 
-                        && staff[i].id === 4031219
-                        || staff[i].id === 3690649){
+                        && (staff[i].id === 3824462/*Marie*/
+                        || staff[i].id === 3690649/*SirLydian*/) 
+                        && staff[i].id === chat.uid){
                             var from = chat.un;
                             API.sendChat("[Demoting @" + chat.un + " so they can AFK!]");
-                            API.moderateSetRole(chat.uid, NONE)
+                            API.moderateSetRole(chat.uid, API.ROLE.NONE);
+                        }
+                    }
+                }
+            }
+        }
+        
+        bot.commands.promoteAfkCommand = {
+        command: 'active',
+        rank: 'user',
+        type: 'exact',
+            functionality: function(chat, cmd){
+            if(this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+            if( !bot.commands.executable(this.rank, chat) ) return void (0);
+                else{
+                    var staff = API.getStaff();
+                    for(var i = 0; i < staff.length; i++){
+                        if(this.type === 'exact' 
+                        && chat.message.length === cmd.length 
+                        && (staff[i].id === 3824462/*Marie*/
+                        || staff[i].id === 3690649/*SirLydian*/)){
+                            var from = chat.un;
+                            API.sendChat("[Promoting @" + chat.un + " !]");
+                            API.moderateSetRole(chat.uid, API.ROLE.MANAGER);
                         }
                     }
                 }
