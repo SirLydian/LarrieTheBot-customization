@@ -43,9 +43,20 @@
          }
 
          */
-        //function DisableAudioVideo() {
-          //  $("div.item.s-av").click();
-       //}
+        bot.commands.afkRankCommand = {
+        command: 'afk',
+        rank: 'manager',
+        type: 'exact',
+            functionality: function(chat, cmd){
+            if(this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+            if( !bot.commands.executable(this.rank, chat) ) return void (0);
+                else{
+                    if(this.type === 'exact' && chat.message.length === cmd.length){
+                        API.sendChat("Cmd executed!");
+                    }
+                }
+            }
+        }
        
         //Mehs to skip function
         var isRecent = false;
