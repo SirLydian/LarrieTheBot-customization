@@ -51,12 +51,10 @@
             if(this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
             if( !bot.commands.executable(this.rank, chat) ) return void (0);
                 else{
-                    var staff = API.getStaff();
+                    //var staff = API.getStaff();
                     
                         if(this.type === 'exact' && chat.message.length === cmd.length){
                             API.sendChat("Cmd executed!");
-                        } else {
-                            API.sendChat("Cmd failed!");
                         }
                     
                 }
