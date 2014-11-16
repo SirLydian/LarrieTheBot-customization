@@ -51,9 +51,7 @@
             if(this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
             if( !bot.commands.executable(this.rank, chat) ) return void (0);
                 else{
-                    if(this.type === 'exact' 
-                    && chat.message.length === cmd.length 
-                    && chat.uid === 4031219){
+                    if(this.type === 'exact' && chat.message.length === cmd.length && chat.uid === 4031219){
                         API.sendChat("Cmd executed!");
                     } else {
                         API.sendChat("Cmd failed!");
