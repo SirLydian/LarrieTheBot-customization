@@ -59,8 +59,9 @@
                         SirLydian = 3690649;
 			OfficialPollux = 3687889;
 			RabbitFish = 4031219
-			TrillChazzy = 3443090*/
-                        if(this.type === 'exact' && chat.message.length === cmd.length && (staff[i].id === 3824462 || staff[i].id === 3687889 || staff[i].id === 4031219 || staff[i].id === 3443090) && staff[i].id === chat.uid){
+			TrillChazzy = 3443090
+			TopGearDog = 3646501*/
+                        if(this.type === 'exact' && chat.message.length === cmd.length && (staff[i].id === 3824462 || staff[i].id === 3687889 || staff[i].id === 4031219 || staff[i].id === 3443090 || staff[i].id === 3646501) && staff[i].id === chat.uid){
                             	var from = chat.un;
                             	API.sendChat("[Demoting @" + chat.un + " so they can AFK!]");
                             	API.moderateSetRole(chat.uid, API.ROLE.NONE);
@@ -82,13 +83,15 @@
                 	SirLydian = 3690649;
 			OfficialPollux = 3687889;
 			RabbitFish = 4031219
-			TrillChazzy = 3443090*/
+			TrillChazzy = 3443090
+			TopGearDog = 3646501*/
                     	if(this.type === 'exact' && chat.message.length === cmd.length){
                     		switch(chat.uid) {
 					case 3824462:
 				    	case 3687889:
 				    	case 4031219:
 					case 3443090:
+					case 3646501:
 						var from = chat.un;
 			                     	API.sendChat("[Promoting @" + chat.un + "!]");
 			                     	API.moderateSetRole(chat.uid, API.ROLE.MANAGER);
