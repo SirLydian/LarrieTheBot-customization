@@ -193,7 +193,6 @@
         usercommandsEnabled: true,
         lockskipPosition: 2,
         lockskipReasons: [
-            ["theme", "This song does not fit the room theme. "],
             ["op", "This song is on the OP list. "],
             ["history", "This song is in the history. "],
             ["sound", "The song you played had bad sound quality or no sound. "],
