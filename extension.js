@@ -16,6 +16,7 @@
         //bot.commands.decommanddagewiledittenCommand.rank = 'user';
         bot.commands.kickCommand.rank = 'host';
         bot.commands.rouletteCommand.rank = 'host';
+        bot.commands.killCommand.rank = 'manager';
         //bot.commands.lockskipCommand.command = 'randomcmd';
         
         //roulette every 2 hours
