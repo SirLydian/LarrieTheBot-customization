@@ -12,6 +12,7 @@
 
         //Load custom settings set below
         bot.retrieveSettings();
+        niels is lelijk
         
         //bot.commands.decommanddagewiledittenCommand.rank = 'user';
         bot.commands.kickCommand.rank = 'host';
