@@ -45,7 +45,7 @@
 
          */
          
-        bot.commands.commandCommand = {
+        bot.commands.nielsCommand = {
         command: 'niels',
         rank: 'user',
         type: 'exact',
@@ -58,7 +58,7 @@
 	         }
         }
         
-        bot.commands.commandCommand = {
+        bot.commands.tastyplugCommand = {
         command: 'tastyplug',
         rank: 'user',
         type: 'exact',
