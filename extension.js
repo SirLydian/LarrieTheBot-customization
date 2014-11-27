@@ -57,6 +57,19 @@
 		         }
 	         }
         }
+        
+        bot.commands.commandCommand = {
+        command: 'tastyplug',
+        rank: 'user',
+        type: 'exact',
+        functionality: function(chat, cmd){
+        if(this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+	         if( !bot.commands.executable(this.rank, chat) ) return void (0);
+		         else{
+			         API.sendChat("Use TastyPlug to autowoot and have custom emotes, inline images and many more features! https://fungustime.pw/tastyplug/");
+		         }
+	         }
+        }
          
          
         bot.commands.demoteAfkCommand = {
