@@ -27,7 +27,7 @@
         }, 7200000);
         
         function autowoott(){
-        	$('#div.woot').click();
+        	$('#woot').click();
         }
         API.on(API.ADVANCE, autowoott);
         
