@@ -26,6 +26,9 @@
     	    }
         }, 7200000);
         
+        API.on(API.ADVANCE, autowoot);
+        function autowoot(){$('#div.woot').click();}
+
         /*
          Extend the bot here, either by calling another function or here directly.
          Model code for a bot command:
