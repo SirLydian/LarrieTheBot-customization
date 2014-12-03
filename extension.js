@@ -149,7 +149,7 @@
         }
         
         bot.commands.promoteAfkCommand = {
-        command: 'active',
+        command: 'back',
         rank: 'user',
         type: 'exact',
             functionality: function(chat, cmd){
