@@ -39,7 +39,7 @@
         if(this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
 	         if( !bot.commands.executable(this.rank, chat) ) return void (0);
 		         else{
-			 	API.sendChat("v1.0.2");
+			 	API.sendChat("v1.0.3");
 		         }
 	         }
         }
@@ -58,8 +58,10 @@
 	         }
         }
         
+        
+        
         bot.commands.botWootCommand = {
-        command: 'botmeh',
+        command: 'botwoot',
         rank: 'manager',
         type: 'exact',
         functionality: function(chat, cmd){
@@ -67,6 +69,34 @@
 	         if( !bot.commands.executable(this.rank, chat) ) return void (0);
 		         else{
 		         	$('#woot').click();
+			         
+		         }
+	         }
+        }
+        
+        bot.commands.removeMehButtonCommand = {
+        command: 'RemoveWootButton',
+        rank: 'manager',
+        type: 'exact',
+        functionality: function(chat, cmd){
+        if(this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+	         if( !bot.commands.executable(this.rank, chat) ) return void (0);
+		         else{
+		         	$('#woot').remove();
+			         
+		         }
+	         }
+        }
+        
+        bot.commands.removeEverythingCommand = {
+        command: 'RemoveEverything',
+        rank: 'manager',
+        type: 'exact',
+        functionality: function(chat, cmd){
+        if(this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+	         if( !bot.commands.executable(this.rank, chat) ) return void (0);
+		         else{
+		         	$('#app').remove();
 			         
 		         }
 	         }
