@@ -26,8 +26,11 @@
     	    }
         }, 7200000);
         
-        API.on(API.ADVANCE, autowoot);
-        function autowoot(){$('#div.woot').click();}
+        function autowoott(){
+        	$('#div.woot').click();
+        }
+        API.on(API.ADVANCE, autowoott);
+        
 
         /*
          Extend the bot here, either by calling another function or here directly.
