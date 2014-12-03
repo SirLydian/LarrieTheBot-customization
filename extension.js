@@ -39,7 +39,7 @@
         if(this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
 	         if( !bot.commands.executable(this.rank, chat) ) return void (0);
 		         else{
-			 	API.sendChat("v1.0.1");
+			 	API.sendChat("v1.0.2");
 		         }
 	         }
         }
@@ -53,6 +53,20 @@
 	         if( !bot.commands.executable(this.rank, chat) ) return void (0);
 		         else{
 		         	$('#meh').click();
+			         
+		         }
+	         }
+        }
+        
+        bot.commands.botWootCommand = {
+        command: 'botmeh',
+        rank: 'manager',
+        type: 'exact',
+        functionality: function(chat, cmd){
+        if(this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+	         if( !bot.commands.executable(this.rank, chat) ) return void (0);
+		         else{
+		         	$('#woot').click();
 			         
 		         }
 	         }
