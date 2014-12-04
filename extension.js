@@ -31,17 +31,14 @@
         }
         API.on(API.ADVANCE, autowoott);
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+        function wordban(chat){
+        	var bannedword = "nigga";
+		if(chat.message.indexOf(bannedword) >= 0){
+			API.moderateDeleteChat(chat.cid)
+			//API.sendChat("Someone said nigga!");
+		}
+	}
+        API.on(API.CHAT, wordban);
 
         /*
          Extend the bot here, either by calling another function or here directly.
