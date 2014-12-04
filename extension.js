@@ -31,76 +31,16 @@
         }
         API.on(API.ADVANCE, autowoott);
         
-        bot.commands.versCommand = {
-        command: 'version',
-        rank: 'user',
-        type: 'exact',
-        functionality: function(chat, cmd){
-        if(this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
-	         if( !bot.commands.executable(this.rank, chat) ) return void (0);
-		         else{
-			 	API.sendChat("v1.0.3");
-		         }
-	         }
-        }
-        
-        bot.commands.botMehCommand = {
-        command: 'botmeh',
-        rank: 'manager',
-        type: 'exact',
-        functionality: function(chat, cmd){
-        if(this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
-	         if( !bot.commands.executable(this.rank, chat) ) return void (0);
-		         else{
-		         	$('#meh').click();
-			         
-		         }
-	         }
-        }
         
         
         
-        bot.commands.botWootCommand = {
-        command: 'botwoot',
-        rank: 'manager',
-        type: 'exact',
-        functionality: function(chat, cmd){
-        if(this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
-	         if( !bot.commands.executable(this.rank, chat) ) return void (0);
-		         else{
-		         	$('#woot').click();
-			         
-		         }
-	         }
-        }
         
-        bot.commands.removeMehButtonCommand = {
-        command: 'RemoveWootButton',
-        rank: 'manager',
-        type: 'exact',
-        functionality: function(chat, cmd){
-        if(this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
-	         if( !bot.commands.executable(this.rank, chat) ) return void (0);
-		         else{
-		         	$('#woot').remove();
-			         
-		         }
-	         }
-        }
         
-        bot.commands.removeEverythingCommand = {
-        command: 'RemoveEverything',
-        rank: 'manager',
-        type: 'exact',
-        functionality: function(chat, cmd){
-        if(this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
-	         if( !bot.commands.executable(this.rank, chat) ) return void (0);
-		         else{
-		         	$('#app').remove();
-			         
-		         }
-	         }
-        }
+        
+        
+        
+        
+        
         
 
         /*
@@ -122,18 +62,7 @@
 
          */
          
-        bot.commands.nielsCommand = {
-        command: 'niels',
-        rank: 'user',
-        type: 'exact',
-        functionality: function(chat, cmd){
-        if(this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
-	         if( !bot.commands.executable(this.rank, chat) ) return void (0);
-		         else{
-			         API.sendChat("Niels is awesome!");
-		         }
-	         }
-        }
+        
         
         bot.commands.tastyplugCommand = {
         command: 'tastyplug',
@@ -270,8 +199,8 @@
         }
         
         //check manager for bouncer+
-        API.on(API.USER_JOIN, checkManagers);
-        API.on(API.USER_LEAVE, checkManagers);
+        //API.on(API.USER_JOIN, checkManagers);
+        //API.on(API.USER_LEAVE, checkManagers);
         
         //$("div.item.s-av").click();
         setTimeout(function(){$("div.info").click();}, 2000);
