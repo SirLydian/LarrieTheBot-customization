@@ -33,7 +33,7 @@
         
         function deleteWords(chat) {
 	var msg = chat.message.toLowerCase();
-	var _array = ["nigga", "niga", "nigger", "niqa", "niqqa", "negro", "niqua", "niggga", "niggr", "niggie"];
+	var _array = ["nigga", "niga", "nigger", "niqa", "niqqa", "negro", "niqua", "niggga", "niggr", "niggie", "niggi", "negr0", "n3gro", "n3gr0"];
 		for (var i = 0; i < _array.length; i++) {
 			if (msg.indexOf(_array[i]) != -1) {
 				API.moderateDeleteChat(chat.cid);
