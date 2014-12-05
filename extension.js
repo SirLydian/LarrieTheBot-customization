@@ -196,8 +196,8 @@
         }
         
         //check manager for bouncer+
-        //API.on(API.USER_JOIN, checkManagers);
-        //API.on(API.USER_LEAVE, checkManagers);
+        API.on(API.USER_JOIN, checkManagers);
+        API.on(API.USER_LEAVE, checkManagers);
         
         //$("div.item.s-av").click();
         setTimeout(function(){$("div.info").click();}, 2000);
