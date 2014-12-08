@@ -63,9 +63,9 @@
          */
          
         function dcCheck(chat) {
-                    	var user = basicBot.userUtilities.lookupUserName(name);
-                        if (typeof user === 'boolean') return API.sendChat(subChat(basicBot.chat.invaliduserspecified, {name: chat.un}));
-                        var toChat = basicBot.userUtilities.dclookup(user.id);
+                    	var user = bot.userUtilities.lookupUserName(name);
+                        if (typeof user === 'boolean') return API.sendChat(subChat(bot.chat.invaliduserspecified, {name: chat.un}));
+                        var toChat = bot.userUtilities.dclookup(user.id);
                         API.sendChat(toChat);
                     
                 }
