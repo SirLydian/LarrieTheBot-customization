@@ -62,14 +62,7 @@
 
          */
          
-        function dcCheck(chat) {
-                    	var user = bot.userUtilities.lookupUserName(name);
-                        if (typeof user === 'boolean') return API.sendChat(subChat(bot.chat.invaliduserspecified, {name: chat.un}));
-                        var toChat = bot.userUtilities.dclookup(user.id);
-                        API.sendChat(toChat);
-                    
-                }
-        API.on(API.USER_JOIN, dcCheck);
+        
         
         
         bot.commands.tastyplugCommand = {
