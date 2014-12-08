@@ -62,7 +62,7 @@
 
          */
          
-        function dcCheck(){
+        function dcCheck(chat){
         		var msg = chat.message;
                         var name;
                         //if (msg.length === cmd.length) name = chat.un;
