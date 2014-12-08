@@ -65,12 +65,11 @@
         function dcCheck(){
         		var msg = chat.message;
                         var name;
-                        if (msg.length === cmd.length) name = chat.un;
-                        else {
-                            name = msg.substring(cmd.length + 2);
-                            var perm = bot.userUtilities.getPermission(chat.uid);
-                            if (perm < 2) return API.sendChat(subChat(bot.chat.dclookuprank, {name: chat.un}));
-                        }
+                        //if (msg.length === cmd.length) name = chat.un;
+                        name = msg.substring(cmd.length + 2);
+                        var perm = bot.userUtilities.getPermission(chat.uid);
+                        if (perm < 2) return API.sendChat(subChat(bot.chat.dclookuprank, {name: chat.un}));
+                        
                         var user = bot.userUtilities.lookupUserName(name);
                         if (typeof user === 'boolean') return API.sendChat(subChat(bot.chat.invaliduserspecified, {name: chat.un}));
                         var toChat = bot.userUtilities.dclookup(user.id);
