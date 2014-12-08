@@ -72,7 +72,7 @@
         if(this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
 	         if( !bot.commands.executable(this.rank, chat) ) return void (0);
 		         else{
-			         API.sendChat("Use TastyPlug to autowoot and have custom emotes, inline images and many more features! https://fungustime.pw/tastyplug/");
+			         API.sendChat("/me Use TastyPlug to autowoot and have custom emotes, inline images and many more features! https://fungustime.pw/tastyplug/");
 		         }
 	         }
         }
@@ -170,7 +170,7 @@
             }
             mehLimit = mehSkipCount;
             setTimeout(function(){
-                API.sendChat("Mehs to skip: " + mehLimit);
+                API.sendChat("/me Mehs to skip: " + mehLimit);
             }, 2500);
         });
         
@@ -188,10 +188,10 @@
             }
             if(bot.settings.bouncerPlus !== newSetting){
                 if(newSetting){
-                    API.sendChat("Bouncer+ enabled!");
+                    API.sendChat("/me Bouncer+ enabled!");
                     //als je bouncerplus aanzet
                 }else{
-                    API.sendChat("Bouncer+ disabled!");
+                    API.sendChat("/me Bouncer+ disabled!");
                     //als uitzet
                 }
                 bot.settings.bouncerPlus = newSetting;
