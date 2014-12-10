@@ -81,7 +81,7 @@
 	         } else if(item1 == item2 && item2 == item3){
 	         	API.sendChat("@" + chat.un + " JACKPOT! " + item1 + " | " + item2 + " | " + item3);
 	         } else {
-	         	API.sendChat("You lose!" + item1 + " | " + item2 + " | " + item3");
+	         	API.sendChat("You lose!" + item1 + " | " + item2 + " | " + item3);
 	         }
         }
         }
