@@ -62,6 +62,31 @@
 
          */
          
+        bot.commands.slotCommand = {
+        command: 'slots',
+        rank: 'user',
+        type: 'exact',
+        functionality: function(chat, cmd){
+        if(this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+        if( !bot.commands.executable(this.rank, chat) ) return void (0);
+        else{
+	       	 var items = Array(":helicopter:", ":coffee:", ":hamburger:", ":fries:", ":car:", ":heart:", ":anchor:", ":shipit:", ":speedboat:", ":rocket:", ":boat", ":baseball:");
+	         
+	         var item1 = items[Math.floor(Math.random()*items.length)];
+	         var item2 = items[Math.floor(Math.random()*items.length)];
+	         var item3 = items[Math.floor(Math.random()*items.length)];
+	         
+	         if(item1 == item2 || item2 == item3 || item1 == item3){
+	         	API.sendChat("@" + chat.un + " You win! " + item1 + " | " + item2 + " | " + item3);
+	         } else if(item1 == item2 && item2 == item3){
+	         	API.sendChat("@" + chat.un + " JACKPOT! " + item1 + " | " + item2 + " | " + item3);
+	         } else {
+	         	API.sendChat("You lose!" + item1 + " | " + item2 + " | " + item3");
+	         }
+        }
+        }
+        }
+         
         
         
         
