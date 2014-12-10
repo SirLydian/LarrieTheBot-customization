@@ -70,8 +70,8 @@
         if(this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
         if( !bot.commands.executable(this.rank, chat) ) return void (0);
         else{
-	       	 //var items = Array(":helicopter:", ":coffee:", ":hamburger:", ":fries:", ":car:", ":heart:", ":anchor:", ":shipit:", ":speedboat:", ":rocket:", ":boat:", ":baseball:", ":8ball:" ,":gem:", ":bulb:", ":key:", ":santa:",":horse:", ":zap:", ":sunny:", ":frog:", ":whale:", ":chicken:", ":rose:");
-	       	 var items = Array(":helicopter:", ":coffee:");
+	       	 var items = Array(":helicopter:", ":coffee:", ":hamburger:", ":fries:", ":car:", ":heart:", ":anchor:", ":shipit:", ":speedboat:", ":rocket:", ":boat:", ":baseball:", ":8ball:" ,":gem:", ":bulb:", ":key:", ":santa:",":horse:", ":zap:", ":sunny:", ":frog:", ":whale:", ":chicken:", ":rose:");
+	       	 //var items = Array(":helicopter:", ":coffee:");
 	       	 var waitlistPos = (API.getWaitListPosition() + 1);
 	       	 var newWaitlistPos = ((API.getWaitListPosition() + 1) - 3);
 	       	 var userID = chat.uid;
