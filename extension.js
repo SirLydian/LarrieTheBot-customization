@@ -269,10 +269,10 @@
         API.on(API.USER_LEAVE, checkManagers);
         
         //$("div.item.s-av").click();
-        setTimeout(function(){$("div.info").click();}, 2000);
-        setTimeout(function(){$("div.item.settings").click();}, 2800);
-        setTimeout(function(){$("div.item.s-av").click();}, 3600);
-        setTimeout(function(){$("div.back").click();}, 4400);
+        setTimeout(function(){$("div.info").click();}, 4000);
+        setTimeout(function(){$("div.item.settings").click();}, 6000);
+        setTimeout(function(){$("div.item.s-av").click();}, 8000);
+        setTimeout(function(){$("div.back").click();}, 10000);
         
                 //Load the chat package again to account for any changes
         bot.loadChat();
