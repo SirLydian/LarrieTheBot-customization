@@ -6,6 +6,8 @@
         if (!window.bot) {
             return setTimeout(extend, 1 * 1000);
         }
+        
+        //"afkremove": "@%%NAME%%, you have been removed for being afk for %%TIME%%. You were at position %%POSITION%%. Chat at least once every %%MAXIMUMAFK%% minutes if you want to play a song.",
 
         //Precaution to make sure it is assigned properly.
         var bot = window.bot;
