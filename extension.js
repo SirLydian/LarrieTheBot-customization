@@ -316,7 +316,7 @@
         filterChat: true,
         etaRestriction: false,
         welcome: false,
-        opLink: "https://goo.gl/sF5Lma",
+        opLink: "http://goo.gl/0zW2yj",
         rulesLink: "https://goo.gl/roLwJ",
         themeLink: "We only allow EDM Trap and the sub-genres of trap (such as trapstyle, Festival, neuro trap, chill-trap, future bass/beats, Jersey Club, dirty south, trill trap)!",
         fbLink: "https://www.facebook.com/OfficialTrapCity",
