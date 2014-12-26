@@ -327,8 +327,8 @@
         songstats: false,
         commandLiteral: "!",
         blacklists: {
-            NSFW: "https://rawgit.com/SirLydian/basicBot-customization/master/blacklists/ExampleNSFWlist.json",
-            OP: "https://rawgit.com/SirLydian/basicBot-customization/master/blacklists/ExampleOPlist.json"
+            NSFW: "https://rawgit.com/SirLydian/LarrieTheBot-customization/master/blacklists/ExampleNSFWlist.json",
+            OP: "https://rawgit.com/SirLydian/LarrieTheBot-customization/master/blacklists/ExampleOPlist.json"
         }
     }));
     //
