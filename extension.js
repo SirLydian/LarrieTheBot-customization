@@ -152,7 +152,7 @@
         if(this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
 	         if( !bot.commands.executable(this.rank, chat) ) return void (0);
 		         else{
-			         API.sendChat("/me Join our teamspeak server together with radiant.dj! IP: radiant.dj | PW: snailislife");
+			         API.sendChat("/me Join our teamspeak server together with radiant.dj! IP: radiant.dj | PW: snailislife (our channel is at the bottom).");
 		         }
 	         }
         }
