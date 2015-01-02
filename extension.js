@@ -156,6 +156,19 @@
 		         }
 	         }
         }
+        
+        bot.commands.minecraftCommand = {
+        command: 'minecraft',
+        rank: 'user',
+        type: 'exact',
+        functionality: function(chat, cmd){
+        if(this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+	         if( !bot.commands.executable(this.rank, chat) ) return void (0);
+		         else{
+			         API.sendChat("/me Plug.dj has an official minecraft server! Join now, IP: plugdj.mcph.co (official account required).");
+		         }
+	         }
+        }
          
         /* 
         bot.commands.demoteAfkCommand = {
