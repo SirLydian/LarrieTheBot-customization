@@ -354,7 +354,7 @@
         commandLiteral: "!",
         blacklists: {
             NSFW: "https://rawgit.com/SirLydian/LarrieTheBot-customization/master/blacklists/ExampleNSFWlist.json",
-            OP: "https://rawgit.com/SirLydian/LarrieTheBot-customization/master/blacklists/ExampleOPlist.json"
+            OP: "https://dl.dropboxusercontent.com/s/e7xxnrknojylw67/BotBlacklist.json"
         }
     }));
     //
