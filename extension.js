@@ -144,19 +144,6 @@
 	         }
         }
         
-        bot.commands.teamspeakCommand = {
-        command: 'teamspeak',
-        rank: 'user',
-        type: 'exact',
-        functionality: function(chat, cmd){
-        if(this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
-	         if( !bot.commands.executable(this.rank, chat) ) return void (0);
-		         else{
-			         API.sendChat("/me Join our teamspeak server together with radiant.dj! IP: radiant.dj | PW: snailislife (our channel is at the bottom).");
-		         }
-	         }
-        }
-        
         bot.commands.minecraftCommand = {
         command: 'minecraft',
         rank: 'user',
@@ -255,11 +242,19 @@
         API.on(API.VOTE_UPDATE, callback);
         API.on(API.ADVANCE, function(obj){
             var WaitlistCount = API.getWaitList().length;
+            var UserCount = API.getUsers().length;
             if(WaitlistCount <= 45){
                 var mehSkipCount = Math.round((WaitlistCount / 3) + 2);
-                if(mehSkipCount < 5){
-                    mehSkipCount = 5;
+                if(UserCount >= 50){
+                	if(mehSkipCount < 8){
+                    		mehSkipCount = 8;
+                	}
+                } else {
+                	if(mehSkipCount < 6){
+                    		mehSkipCount = 6;
+                	}
                 }
+                
             }
             mehLimit = mehSkipCount;
             setTimeout(function(){
