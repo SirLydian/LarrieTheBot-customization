@@ -6,45 +6,12 @@
         if (!window.bot) {
             return setTimeout(extend, 1 * 1000);
         }
-        
-        //"afkremove": "@%%NAME%%, you have been removed for being afk for %%TIME%%. You were at position %%POSITION%%. Chat at least once every %%MAXIMUMAFK%% minutes if you want to play a song.",
 
         //Precaution to make sure it is assigned properly.
         var bot = window.bot;
 
         //Load custom settings set below
         bot.retrieveSettings();
-        
-        //bot.commands.decommanddagewiledittenCommand.rank = 'user';
-        bot.commands.kickCommand.rank = 'host';
-        bot.commands.rouletteCommand.rank = 'host';
-        bot.commands.killCommand.rank = 'manager';
-        bot.commands.pingCommand.rank = 'bouncer';
-        //bot.commands.lockskipCommand.command = 'randomcmd';
-        
-        //roulette every 2 hours
-        setInterval(function(){
-    	    if (!bot.room.roulette.rouletteStatus) {
-    		    bot.room.roulette.startRoulette();
-    	    }
-        }, 7200000);
-        
-        function autowoott(){
-        	$('#woot').click();
-        }
-        API.on(API.ADVANCE, autowoott);
-        
-        function deleteWords(chat) {
-	var msg = chat.message.toLowerCase();
-	var _array = ["nigga", "niga", "nigger", "niqa", "niqqa", "negro", "niqua", "niggga", "niggr", "niggie", "niggi", "negr0", "n3gro", "n3gr0"];
-		for (var i = 0; i < _array.length; i++) {
-			if (msg.indexOf(_array[i]) != -1) {
-				API.moderateDeleteChat(chat.cid);
-				return;
-			}
-		}
-	}
-	API.on(API.CHAT, deleteWords);
 
         /*
          Extend the bot here, either by calling another function or here directly.
@@ -64,93 +31,63 @@
          }
 
          */
-         
+        //bot.commands.decommanddagewiledittenCommand.rank = 'user';
+        bot.commands.kickCommand.rank = 'host';
+        bot.commands.rouletteCommand.rank = 'host';
+        bot.commands.killCommand.rank = 'manager';
+        bot.commands.pingCommand.rank = 'bouncer';
+        //bot.commands.lockskipCommand.command = 'randomcmd';
         
+        //roulette every 2 hours
+        setInterval(function(){
+            if (!bot.room.roulette.rouletteStatus) {
+                bot.room.roulette.startRoulette();
+            }
+        }, 7200000);
         
+        function autowoott(){
+            $('#woot').click();
+        }
+        API.on(API.ADVANCE, autowoott);
+        
+        function deleteWords(chat) {
+    var msg = chat.message.toLowerCase();
+    var _array = ["nigga", "niga", "nigger", "niqa", "niqqa", "negro", "niqua", "niggga", "niggr", "niggie", "niggi", "negr0", "n3gro", "n3gr0"];
+        for (var i = 0; i < _array.length; i++) {
+            if (msg.indexOf(_array[i]) != -1) {
+                API.moderateDeleteChat(chat.cid);
+                return;
+            }
+        }
+    }
+    API.on(API.CHAT, deleteWords);
+
+        bot.commands.baconCommand = {
+            command: 'bacon',  //The command to be called. With the standard command literal this would be: !bacon
+            rank: 'user', //Minimum user permission to use the command
+            type: 'exact', //Specify if it can accept variables or not (if so, these have to be handled yourself through the chat.message
+            functionality: function (chat, cmd) {
+                if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+                if (!bot.commands.executable(this.rank, chat)) return void (0);
+                else {
+                    API.sendChat("/me Bacon!!!");
+                }
+            }
+        };
+
         bot.commands.tastyplugCommand = {
         command: 'tastyplug',
         rank: 'user',
         type: 'exact',
         functionality: function(chat, cmd){
         if(this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
-	         if( !bot.commands.executable(this.rank, chat) ) return void (0);
-		         else{
-			         API.sendChat("/me Use TastyPlug to autowoot and have custom emotes, inline images and many more features! https://fungustime.pw/tastyplug/");
-		         }
-	         }
+             if( !bot.commands.executable(this.rank, chat) ) return void (0);
+                 else{
+                     API.sendChat("/me Use TastyPlug to autowoot and have custom emotes, inline images and many more features! https://fungustime.pw/tastyplug/");
+                 }
+             }
         }
-        
-        /* 
-        bot.commands.demoteAfkCommand = {
-        command: 'afk',
-        rank: 'manager',
-        type: 'exact',
-            functionality: function(chat, cmd){
-            if(this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
-            if( !bot.commands.executable(this.rank, chat) ) return void (0);
-                else{
-                    var staff = API.getStaff();
-                    for(var i = 0; i < staff.length; i++){
-                        //Marie = 3824462;
-                	//SirLydian = 3690649;
-			//OfficialPollux = 3687889;
-			//RabbitFish = 4031219
-			//TrillChazzy = 3443090
-			//TopGearDog = 3646501
-			//Putty Patrol = 4399595
-			//Pool = 3440508
-			//SpaceCadet = 3811195
-                        if(this.type === 'exact' && chat.message.length === cmd.length && (staff[i].id === 3824462 || staff[i].id === 3687889 || staff[i].id === 4031219 || staff[i].id === 3443090 || staff[i].id === 3646501 || staff[i].id === 4399595 || staff[i].id === 3440508 || staff[i].id === 3811195) && staff[i].id === chat.uid){
-                            	var from = chat.un;
-                            	API.sendChat("[Demoting @" + chat.un + " so they can AFK!]");
-                            	API.moderateSetRole(chat.uid, API.ROLE.NONE);
-                        }
-                    }
-                }
-            }
-        }
-        /*
-        bot.commands.promoteAfkCommand = {
-        command: 'back',
-        rank: 'user',
-        type: 'exact',
-            functionality: function(chat, cmd){
-            if(this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
-            if( !bot.commands.executable(this.rank, chat) ) return void (0);
-            	else{
-                	//Marie = 3824462;
-                	//SirLydian = 3690649;
-			//OfficialPollux = 3687889;
-			//RabbitFish = 4031219
-			//TrillChazzy = 3443090
-			//TopGearDog = 3646501
-			//Putty Patrol = 4399595
-			//Pool = 3440508
-			//SpaceCadet = 3811195
-                    	if(this.type === 'exact' && chat.message.length === cmd.length){
-                    		switch(chat.uid) {
-					case 3824462:
-				    	case 3687889:
-				    	case 4031219:
-					case 3443090:
-					case 3646501:
-					case 4399595:
-					case 3440508:
-					case 3811195:
-						var from = chat.un;
-			                     	API.sendChat("[Promoting @" + chat.un + "!]");
-			                     	API.moderateSetRole(chat.uid, API.ROLE.MANAGER);
-					    	break;
-				    	default:
-				        	break;
-				}
-	                }
-                }
-            }
-        }
-        */
-       
-        //Mehs to skip function
+
         var isRecent = false;
         var mehLimit = Infinity;
         function callback() {
@@ -169,13 +106,13 @@
             if(WaitlistCount <= 45){
                 var mehSkipCount = Math.round((WaitlistCount / 3) + 2);
                 if(UserCount >= 50){
-                	if(mehSkipCount < 8){
-                    		mehSkipCount = 8;
-                	}
+                    if(mehSkipCount < 8){
+                            mehSkipCount = 8;
+                    }
                 } else {
-                	if(mehSkipCount < 6){
-                    		mehSkipCount = 6;
-                	}
+                    if(mehSkipCount < 6){
+                            mehSkipCount = 6;
+                    }
                 }
                 
             }
@@ -212,8 +149,8 @@
         //check manager for bouncer+
         API.on(API.USER_JOIN, checkManagers);
         API.on(API.USER_LEAVE, checkManagers);
-        
-                //Load the chat package again to account for any changes
+
+        //Load the chat package again to account for any changes
         bot.loadChat();
 
     }
@@ -224,15 +161,20 @@
         botName: "Larrie The Bot",
         language: "english",
         chatLink: "https://rawgit.com/SirLydian/basicBot/master/lang/en.json",
+        startupCap: 1, // 1-200
+        startupVolume: 0, // 0-100
+        startupEmoji: false, // true or false
         maximumAfk: 60,
         afkRemoval: true,
         maximumDc: 60,
         bouncerPlus: false,
         lockdownEnabled: false,
         lockGuard: true,
-        maximumLocktime: 2,
+        maximumLocktime: 10,
         cycleGuard: true,
-        maximumCycletime: 2,
+        maximumCycletime: 10,
+        voteSkip: false,
+        voteSkipLimit: 10,
         timeGuard: true,
         maximumSongLength: 7,
         autodisable: true,
@@ -259,17 +201,17 @@
         themeLink: "We only allow EDM Trap and the sub-genres of trap (such as trapstyle, Festival, neuro trap, chill-trap, future bass/beats, Jersey Club, dirty south, trill trap)!",
         fbLink: "https://www.facebook.com/OfficialTrapCity",
         youtubeLink: "http://youtube.com/trapcity",
-        website: "https://trapplug.eu/",
+        website: null,
         intervalMessages: [],
         messageInterval: 5,
         songstats: false,
         commandLiteral: "!",
         blacklists: {
-            NSFW: "https://rawgit.com/SirLydian/LarrieTheBot-customization/master/blacklists/ExampleNSFWlist.json",
-            OP: "https://dl.dropboxusercontent.com/s/e7xxnrknojylw67/BotBlacklist.json"
+            NSFW: "https://rawgit.com/Yemasthui/basicBot-customization/master/blacklists/ExampleNSFWlist.json",
+            OP: "https://rawgit.com/Yemasthui/basicBot-customization/master/blacklists/ExampleOPlist.json"
         }
     }));
-    //
+
     //Start the bot and extend it when it has loaded.
     $.getScript('https://rawgit.com/Yemasthui/basicBot/master/basicBot.js', extend);
 
