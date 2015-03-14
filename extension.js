@@ -65,71 +65,7 @@
 
          */
          
-        bot.commands.slotCommand = {
-        command: 'slots',
-        rank: 'host',
-        type: 'exact',
-        functionality: function(chat, cmd){
-        if(this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
-        if( !bot.commands.executable(this.rank, chat) ) return void (0);
-        else{
-	       	 var items = Array(":helicopter:", ":coffee:", ":hamburger:", ":fries:", ":car:", ":heart:", ":anchor:", ":shipit:", ":speedboat:", ":rocket:", ":boat:", ":baseball:", ":8ball:" ,":gem:", ":bulb:", ":key:", ":santa:",":horse:", ":zap:", ":sunny:", ":frog:", ":whale:", ":chicken:", ":rose:");
-	       	 //var items = Array(":helicopter:", ":coffee:");
-	       	 var waitlistPos = (API.getWaitListPosition() + 1);
-	       	 var newWaitlistPos = ((API.getWaitListPosition() + 1) - 3);
-	       	 var userID = chat.uid;
-	         
-	         var item1 = items[Math.floor(Math.random()*items.length)];
-	         var item2 = items[Math.floor(Math.random()*items.length)];
-	         var item3 = items[Math.floor(Math.random()*items.length)];
-	         
-	         if((item1 == item2 && item1 != item3) || (item2 == item3 && item2 != item1) || (item3 == item1 && item3 != item2)){
-	         	//move 3 spots
-	         	API.sendChat("@" + chat.un + " " + item1 + " | " + item2 + " | " + item3 + " You win, moving 3 spots!");
-	         		if(chat.un == "Dr. Goom"){
-	         			API.sendChat("@" + chat.un + " You are not allowed noob.");
-	         			return;
-	         		}
-	         		if(waitlistPos == 0){
-		         		//niet in wachtlijst
-			         	console.log("Adding " + chat.un + " to waitlist");
-			       	 	setTimeout(function(){ API.moderateAddDJ(userID); }, 100);
-			       	 	console.log("Moving " + chat.un + " to spot 1");
-			       	 	setTimeout(function(){ API.moderateMoveDJ(userID, 1); }, 800);
-		         	} else if(waitlistPos >= 2 && waitlistPos <=3){
-		         		//tussen spot 2 & 3
-		         		console.log("Moving " + chat.un + " to spot 1");
-			       	 	setTimeout(function(){ API.moderateMoveDJ(userID, 1); }, 100);
-		         	} else if(waitlistPos > 4){
-		         		//boven spot 4
-		         		console.log("Moving " + chat.un + " to spot - 3");
-			       	 	setTimeout(function(){ API.moderateMoveDJ(userID, (waitlistPos -3)); }, 100);
-		         	}
-	         } else if(item1 == item2 && item1 == item3){
-	         	//Jackspot : first place
-	         	API.sendChat("@" + chat.un + " " + item1 + " | " + item2 + " | " + item3 + " JACKPOT! FIRST SPOT!");
-		         	if(chat.un == "Dr. Goom"){
-	         			API.sendChat("@" + chat.un + " You are not allowed noob.");
-	         			return;
-	         		}
-		         	if(waitlistPos == 0){
-		         		//niet in wachtlijst
-			         	console.log("Adding " + chat.un + " to waitlist");
-			       	 	setTimeout(function(){ API.moderateAddDJ(userID); }, 100);
-			       	 	console.log("Moving " + chat.un + " to spot 1");
-			       	 	setTimeout(function(){ API.moderateMoveDJ(userID, 1); }, 800);
-		         	} else if(waitlistPos >= 1){
-		         		//boven spot 1
-		         		console.log("Moving " + chat.un + " to spot 1");
-			       	 	setTimeout(function(){ API.moderateMoveDJ(userID, 1); }, 100);
-		         	}
-	         } else {
-	         	API.sendChat("@" + chat.un + " " + item1 + " | " + item2 + " | " + item3 + " You lose!");
-	         	setTimeout(function(){ API.moderateDeleteChat(chat.cid); }, 5000);
-	         }
-        }
-        }
-        }
+        
         
         bot.commands.tastyplugCommand = {
         command: 'tastyplug',
@@ -144,19 +80,6 @@
 	         }
         }
         
-        bot.commands.minecraftCommand = {
-        command: 'minecraft',
-        rank: 'user',
-        type: 'exact',
-        functionality: function(chat, cmd){
-        if(this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
-	         if( !bot.commands.executable(this.rank, chat) ) return void (0);
-		         else{
-			         API.sendChat("/me Plug.dj has an official minecraft server! Join now, IP: plugdj.mcph.co (official account required).");
-		         }
-	         }
-        }
-         
         /* 
         bot.commands.demoteAfkCommand = {
         command: 'afk',
@@ -289,12 +212,6 @@
         //check manager for bouncer+
         API.on(API.USER_JOIN, checkManagers);
         API.on(API.USER_LEAVE, checkManagers);
-        
-        //$("div.item.s-av").click();
-        setTimeout(function(){$("div.info").click();}, 4000);
-        setTimeout(function(){$("div.item.settings").click();}, 6000);
-        setTimeout(function(){$("div.item.s-av").click();}, 8000);
-        setTimeout(function(){$("div.back").click();}, 10000);
         
                 //Load the chat package again to account for any changes
         bot.loadChat();
