@@ -41,7 +41,7 @@
         //roulette every 2 hours
         setInterval(function(){
             if (!bot.room.roulette.rouletteStatus) {
-                bot.room.roulette.startRoulette();
+                API.sendChat("!roulette");
             }
         }, 7200000);
         
