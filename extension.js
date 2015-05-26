@@ -75,14 +75,16 @@
             }
         };
         
-        var maxUsersInRoom = API.getUsers().length;
-        localStorage.setItem("maxUsers", maxUsersInRoom); //69
+        
+        if (localStorage.getItem("maxUsers") === null) {
+          //...
+        }
         
         function calcMaxUsers(){
             var usersNow = API.getUsers().length; //5
             if(usersNow > localStorage.getItem("maxUsers")){
                 localStorage.setItem("maxUsers", usersNow);
-                console.log("New max users record: "+localStorage.getItem("maxUsers")+" !");
+                console.log("New max users record: "+localStorage.getItem("maxUsers")+"!");
             }
         }
         
