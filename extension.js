@@ -74,6 +74,29 @@
                 }
             }
         };
+        
+        var maxUsersInRoom = API.getUsers().length;
+        localStorage.setItem("maxUsers", maxUsersInRoom); //69
+        
+        function calcMaxUsers(){
+            var usersNow = API.getUsers().length; //5
+            if(usersNow > localStorage.getItem("maxUsers")){
+                localStorage.setItem("maxUsers", usersNow);
+            }
+        }
+        
+        bot.commands.maxUserCommand = {
+            command: 'usermax',  //The command to be called. With the standard command literal this would be: !bacon
+            rank: 'manager', //Minimum user permission to use the command
+            type: 'exact', //Specify if it can accept variables or not (if so, these have to be handled yourself through the chat.message
+            functionality: function (chat, cmd) {
+                if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+                if (!bot.commands.executable(this.rank, chat)) return void (0);
+                else {
+                    API.sendChat("Max users: "+localStorage.getItem("maxUsers"));
+                }
+            }
+        };
 
         bot.commands.tastyplugCommand = {
         command: 'tastyplug',
@@ -148,6 +171,7 @@
         
         //check manager for bouncer+
         API.on(API.USER_JOIN, checkManagers);
+        API.on(API.USER_JOIN, calcMaxUsers);
         API.on(API.USER_LEAVE, checkManagers);
 
         //Load the chat package again to account for any changes
