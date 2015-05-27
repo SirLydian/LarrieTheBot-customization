@@ -95,14 +95,9 @@
                 if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                 if (!bot.commands.executable(this.rank, chat)) return void (0);
                 else {
+                    // This has set on "+nowMaxusers
+                    API.sendChat("Max users ever in this room: "+localStorage.getItem("maxUsers")+"!");
                     
-                    if (localStorage.getItem("timeMaxUsers") === null) {
-                        //item is not set
-                        API.sendChat("Max users ever in this room: "+localStorage.getItem("maxUsers")+"!");
-                    } else {
-                        //item is set
-                        API.sendChat("Max users ever in this room: "+localStorage.getItem("maxUsers")+"! This has set on "+nowMaxusers);
-                    }
                 }
             }
         };
