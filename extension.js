@@ -101,7 +101,7 @@
                     } else {
                         //item set
                         var nowMaxUsers = new Date(parseInt(localStorage.getItem("timeMaxUsers")));
-                        API.sendChat("Max users ever in this room: "+localStorage.getItem("maxUsers")+"! This has set on "+nowMaxUsers");
+                        API.sendChat("Max users ever in this room: "+localStorage.getItem("maxUsers")+"! This has set on "+nowMaxUsers);
                     }
                 }
             }
