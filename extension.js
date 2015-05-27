@@ -103,8 +103,6 @@
                         //item is set
                         API.sendChat("Max users ever in this room: "+localStorage.getItem("maxUsers")+"! This has set on "+nowMaxusers);
                     }
-                    
-                    API.sendChat("Max users ever in this room: "+localStorage.getItem("maxUsers")+"! This has set on "+nowMaxusers);
                 }
             }
         };
