@@ -51,16 +51,16 @@
         API.on(API.ADVANCE, autowoott);
         
         function deleteWords(chat) {
-    var msg = chat.message.toLowerCase();
-    var _array = ["nigga", "niga", "nigger", "niqa", "niqqa", "negro", "niqua", "niggga", "niggr", "niggie", "niggi", "negr0", "n3gro", "n3gr0"];
-        for (var i = 0; i < _array.length; i++) {
-            if (msg.indexOf(_array[i]) != -1) {
-                API.moderateDeleteChat(chat.cid);
-                return;
+        var msg = chat.message.toLowerCase();
+        var _array = ["nigga", "niga", "nigger", "niqa", "niqqa", "negro", "niqua", "niggga", "niggr", "niggie", "niggi", "negr0", "n3gro", "n3gr0"];
+            for (var i = 0; i < _array.length; i++) {
+                if (msg.indexOf(_array[i]) != -1) {
+                    API.moderateDeleteChat(chat.cid);
+                    return;
+                }
             }
         }
-    }
-    API.on(API.CHAT, deleteWords);
+        API.on(API.CHAT, deleteWords);
 
         bot.commands.baconCommand = {
             command: 'bacon',  //The command to be called. With the standard command literal this would be: !bacon
@@ -95,6 +95,15 @@
                 if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                 if (!bot.commands.executable(this.rank, chat)) return void (0);
                 else {
+                    
+                    if (localStorage.getItem("timeMaxUsers") === null) {
+                        //item is not set
+                        API.sendChat("Max users ever in this room: "+localStorage.getItem("maxUsers")+"!");
+                    } else {
+                        //item is set
+                        API.sendChat("Max users ever in this room: "+localStorage.getItem("maxUsers")+"! This has set on "+nowMaxusers);
+                    }
+                    
                     API.sendChat("Max users ever in this room: "+localStorage.getItem("maxUsers")+"! This has set on "+nowMaxusers);
                 }
             }
