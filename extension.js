@@ -80,7 +80,10 @@
             var usersNow = API.getUsers().length; //5
             if(usersNow > localStorage.getItem("maxUsers")){
                 localStorage.setItem("maxUsers", usersNow);
+                localStorage.setItem("timeMaxUsers", +new Date);
+                var nowMaxusers = new Date(parseInt(localStorage.getItem("timeMaxUsers")));
                 console.log("New max users record: "+localStorage.getItem("maxUsers")+"!");
+                console.log(""+nowMaxusers);
             }
         }
         
@@ -92,7 +95,7 @@
                 if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                 if (!bot.commands.executable(this.rank, chat)) return void (0);
                 else {
-                    API.sendChat("Max users ever in this room: "+localStorage.getItem("maxUsers"));
+                    API.sendChat("Max users ever in this room: "+localStorage.getItem("maxUsers")+"! This has set on "+nowMaxusers);
                 }
             }
         };
