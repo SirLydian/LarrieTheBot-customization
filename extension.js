@@ -171,6 +171,8 @@
                 return false;
             }
         }
+        
+        /*test*/
  
         bot.commands.eventCommand = {
             command: 'event',  //The command to be called. With the standard command literal this would be: !bacon
