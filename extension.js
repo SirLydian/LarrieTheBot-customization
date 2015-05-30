@@ -138,7 +138,7 @@
         API.on(API.ADVANCE, function(obj){
             var WaitlistCount = API.getWaitList().length;
             var UserCount = API.getUsers().length;
-            if(WaitlistCount <= 45){
+            if(WaitlistCount <= 50){
                 var mehSkipCount = Math.round((WaitlistCount / 3) + 2);
                 if(UserCount >= 50){
                     if(mehSkipCount < 8){
@@ -149,7 +149,6 @@
                             mehSkipCount = 6;
                     }
                 }
-                
             }
             mehLimit = mehSkipCount;
             setTimeout(function(){
