@@ -122,6 +122,30 @@
              }
         }
         */
+        
+        bot.commands.eventcountdownCommand = {
+            command: 'eventcountdown',  //The command to be called. With the standard command literal this would be: !bacon
+            rank: 'bouncer', //Minimum user permission to use the command
+            type: 'exact', //Specify if it can accept variables or not (if so, these have to be handled yourself through the chat.message
+            functionality: function (chat, cmd) {
+                if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+                if (!bot.commands.executable(this.rank, chat)) return void (0);
+                else {
+                    var eventTime = 1433008888363;
+                    var currentTime = Date.now();
+                    var timeUntil = eventTime - currentTime;
+                    var time = msToStr(timeUntil);
+
+                    if (eventTime > currentTime){
+                        return API.sendChat("[@" + chat.un + "] Event starts in " + time);
+                    }
+                    else {
+                        API.sendChat("[@" + chat.un + "] Event has already started.");
+                    }
+
+                }
+            }
+        };
 
         var isRecent = false;
         var mehLimit = Infinity;
