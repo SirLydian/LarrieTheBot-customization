@@ -182,13 +182,13 @@
                 if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                 if (!bot.commands.executable(this.rank, chat)) return void (0);
                 else {
-                    var eventTime = 1433008800000;
+                    var eventTime = 1433095200000;
                     var currentTime = Date.now();
                     var timeUntil = eventTime - currentTime;
                     var time = msToStr(timeUntil);
  
                     if (eventTime > currentTime){
-                        return API.sendChat("[@" + chat.un + "] Event starts in " + time);
+                        return API.sendChat("[@" + chat.un + "] Trap City Music Festival Day 2 starts in " + time);
                     }
                     else {
                         API.sendChat("[@" + chat.un + "] Event has already started.");
@@ -198,7 +198,7 @@
             }
         };
     
-        /*
+        
         var isRecent = false;
         var mehLimit = Infinity;
         function callback() {
@@ -231,7 +231,7 @@
                 API.sendChat("/me Mehs to skip: " + mehLimit);
             }, 2500);
         });
-        */
+        
         
         function checkManagers(){
             var managerPresent = false;
@@ -290,7 +290,7 @@
         voteSkip: false,
         voteSkipLimit: 10,
         timeGuard: true,
-        maximumSongLength: 99,
+        maximumSongLength: 7,
         autodisable: true,
         commandCooldown: 0,
         usercommandsEnabled: true,
