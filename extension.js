@@ -170,8 +170,9 @@
             } else {
                 return false;
             }
-        
-        bot.commands.eventcountdownCommand = {
+        }
+ 
+        bot.commands.eventCommand = {
             command: 'event',  //The command to be called. With the standard command literal this would be: !bacon
             rank: 'user', //Minimum user permission to use the command
             type: 'exact', //Specify if it can accept variables or not (if so, these have to be handled yourself through the chat.message
@@ -183,14 +184,14 @@
                     var currentTime = Date.now();
                     var timeUntil = eventTime - currentTime;
                     var time = msToStr(timeUntil);
-
+ 
                     if (eventTime > currentTime){
                         return API.sendChat("[@" + chat.un + "] Event starts in " + time);
                     }
                     else {
                         API.sendChat("[@" + chat.un + "] Event has already started.");
                     }
-
+ 
                 }
             }
         };
