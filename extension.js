@@ -38,13 +38,6 @@
         bot.commands.pingCommand.rank = 'bouncer';
         //bot.commands.lockskipCommand.command = 'randomcmd';
         
-        //roulette every 2 hours
-        setInterval(function(){
-            if (!bot.room.roulette.rouletteStatus) {
-                API.sendChat("!roulette");
-            }
-        }, 7200000);
-        
         function autowoott(){
             $('#woot').click();
         }
