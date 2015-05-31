@@ -191,7 +191,7 @@
             }
         };
     
-        
+        /*
         var isRecent = false;
         var mehLimit = Infinity;
         function callback() {
@@ -224,7 +224,7 @@
                 API.sendChat("/me Mehs to skip: " + mehLimit);
             }, 2500);
         });
-        
+        */
         
         function checkManagers(){
             var managerPresent = false;
@@ -283,7 +283,7 @@
         voteSkip: false,
         voteSkipLimit: 10,
         timeGuard: true,
-        maximumSongLength: 7,
+        maximumSongLength: 99,
         autodisable: true,
         commandCooldown: 0,
         usercommandsEnabled: true,
