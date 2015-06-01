@@ -184,14 +184,14 @@
                         return API.sendChat("[@" + chat.un + "] Trap City Music Festival Day 2 starts in " + time);
                     }
                     else {
-                        API.sendChat("[@" + chat.un + "] Event has already started.");
+                        API.sendChat("[@" + chat.un + "] There is no upcoming event.");
                     }
  
                 }
             }
         };
     
-        /*
+        
         var isRecent = false;
         var mehLimit = Infinity;
         function callback() {
@@ -224,7 +224,7 @@
                 API.sendChat("/me Mehs to skip: " + mehLimit);
             }, 2500);
         });
-        */
+        
         
         function checkManagers(){
             var managerPresent = false;
@@ -283,7 +283,7 @@
         voteSkip: false,
         voteSkipLimit: 10,
         timeGuard: true,
-        maximumSongLength: 99,
+        maximumSongLength: 7,
         autodisable: true,
         commandCooldown: 0,
         usercommandsEnabled: true,
