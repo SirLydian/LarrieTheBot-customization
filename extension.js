@@ -289,8 +289,8 @@
         autodisable: true,
         commandCooldown: 0,
         usercommandsEnabled: true,
-        lockskipPosition: 2,
-        lockskipReasons: [
+        skipPosition: 3,
+        skipReasons: [
             ["op", "This song is on the OP list. "],
             ["history", "This song is in the history. "],
             ["sound", "The song you played had bad sound quality or no sound. "],
