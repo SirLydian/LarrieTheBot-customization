@@ -273,6 +273,7 @@
         smartSkip: true,
         cmdDeletion: true,
         maximumAfk: 60,
+        roomLock: true,
         afkRemoval: true,
         maximumDc: 60,
         bouncerPlus: false,
