@@ -1,13 +1,22 @@
-{
-    "1":{
-        "mid": "1:NSFWsongID1"
+[
+    {
+        "title": "#SELFIE",
+        "author": "The Chainsmokers",
+        "mid": "1:kdemFfbS5H0"
     },
-    "2":{
-        "title": "This is a NSFW song",
-        "author": "The NSFW band",
-        "mid": "1:NSFWsongID2"
+    {
+        "title": "On The Floor",
+        "author": "IceJJFish",
+        "mid": "1:WztJnu-I4jw"
     },
-    "3":{
-        "mid": "1:NSFWsongID3"
+    {
+        "title": "Fantasy",
+        "author": "DyE",
+        "mid": "1:6QFwo57WKwg"
+    },
+    {
+        "title": "Hope",
+        "author": "Vicetone feat. Obama",
+        "mid": "1:4q-jv4OBCa0"
     }
-}
+]
