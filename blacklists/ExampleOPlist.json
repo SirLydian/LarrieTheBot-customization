@@ -1,13 +1,12 @@
-{
-    "1":{
-        "mid": "1:OPsongID1"
+[
+    {
+        "title": "#SELFIE",
+        "author": "The Chainsmokers",
+        "mid": "1:kdemFfbS5H0"
     },
-    "2":{
-        "title": "This is a OP song",
-        "author": "The OP band",
-        "mid": "1:OPsongID2"
-    },
-    "3":{
-        "mid": "1:OPsongID3"
+    {
+        "title": "On The Floor",
+        "author": "IceJJFish",
+        "mid": "1:WztJnu-I4jw"
     }
-}
+]
