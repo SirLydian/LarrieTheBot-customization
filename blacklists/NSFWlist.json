@@ -2,21 +2,25 @@
     {
         "title": "#SELFIE",
         "author": "The Chainsmokers",
-        "mid": "1:kdemFfbS5H0"
+        "mid": "1:kdemFfbS5H0",
+        "type": "nsfw"
     },
     {
         "title": "On The Floor",
         "author": "IceJJFish",
-        "mid": "1:WztJnu-I4jw"
+        "mid": "1:WztJnu-I4jw",
+        "type": "nsfw"
     },
     {
         "title": "Fantasy",
         "author": "DyE",
-        "mid": "1:6QFwo57WKwg"
+        "mid": "1:6QFwo57WKwg",
+        "type": "nsfw"
     },
     {
         "title": "Hope",
         "author": "Vicetone feat. Obama",
-        "mid": "1:4q-jv4OBCa0"
+        "mid": "1:4q-jv4OBCa0",
+        "type": "nsfw"
     }
 ]
