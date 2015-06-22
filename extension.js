@@ -1,5 +1,7 @@
 (function () {
-
+    
+    var fork = "SirLydian";
+    
     //Define our function responsible for extending the bot.
     function extend() {
         //If the bot hasn't been loaded properly, try again in 1 second(s).
@@ -317,8 +319,9 @@
         songstats: false,
         commandLiteral: "!",
         blacklists: {
-            NSFW: "https://rawgit.com/Yemasthui/basicBot-customization/master/blacklists/ExampleNSFWlist.json",
-            OP: "https://rawgit.com/Yemasthui/basicBot-customization/master/blacklists/ExampleOPlist.json"
+            NSFW: "https://rawgit.com/" + fork + "/LarrieTheBot-customization/master/blacklists/NSFWlist.json",
+            OP: "https://rawgit.com/" + fork + "/LarrieTheBot-customization/master/blacklists/OPlist.json",
+            BANNED: ""
         }
     }));
 
