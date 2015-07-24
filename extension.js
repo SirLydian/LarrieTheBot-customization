@@ -320,8 +320,7 @@
         songstats: false,
         commandLiteral: "!",
         blacklists: {
-            BANNED: "https://rawgit.com/" + fork + "/LarrieTheBot-customization/master/blacklists/NSFWlist.json",
-            TEST: "http://files.enjin.com/593951/darock_dont_touch_please/nsfwlist.json"
+            BANNED: "https://rawgit.com/" + fork + "/LarrieTheBot-customization/master/blacklists/NSFWlist.json"
         }
     }));
 
