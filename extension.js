@@ -177,7 +177,7 @@
                 if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                 if (!bot.commands.executable(this.rank, chat)) return void (0);
                 else {
-                    var eventTime = 1443463200;
+                    var eventTime = 1443470400;
                     var currentTime = Date.now();
                     var timeUntil = eventTime - currentTime;
                     var time = msToStr(timeUntil);
