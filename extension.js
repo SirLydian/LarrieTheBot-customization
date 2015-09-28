@@ -170,23 +170,23 @@
         /*test*/
  
         bot.commands.eventCommand = {
-            command: 'event',  //The command to be called. With the standard command literal this would be: !bacon
+            command: 'rip',  //The command to be called. With the standard command literal this would be: !bacon
             rank: 'user', //Minimum user permission to use the command
             type: 'exact', //Specify if it can accept variables or not (if so, these have to be handled yourself through the chat.message
             functionality: function (chat, cmd) {
                 if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                 if (!bot.commands.executable(this.rank, chat)) return void (0);
                 else {
-                    var eventTime = 1433095200000;
+                    var eventTime = 1443463200;
                     var currentTime = Date.now();
                     var timeUntil = eventTime - currentTime;
                     var time = msToStr(timeUntil);
  
                     if (eventTime > currentTime){
-                        return API.sendChat("[@" + chat.un + "] Trap City Music Festival Day 2 starts in " + time);
+                        return API.sendChat("[@" + chat.un + "] PLUG.DJ WILL SHUT DOWN IN " + time);
                     }
                     else {
-                        API.sendChat("[@" + chat.un + "] There is no upcoming event.");
+                        API.sendChat("[@" + chat.un + "] PLUG.DJ IS DEAD.");
                     }
  
                 }
