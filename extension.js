@@ -217,7 +217,7 @@
                     }
                 } else {
                     if(mehSkipCount < 6){
-                            mehSkipCount = 6;
+                            mehSkipCount = 3;
                     }
                 }
             }
